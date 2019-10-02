@@ -108,34 +108,7 @@ def build_item_dict1(fname1, fname2, text_maxlen):
         tokenizer = Tokenizer(num_words=max_features, filters='')
         tokenizer.fit_on_texts(text)
         seq = tokenizer.texts_to_sequences(text)
-        
-        seq_copy = seq
-        # sliding window for reviews
-        target_len = text_maxlen + 1
-        for i in range(0, len(seq)):
-            rs = seq[i] 
-            rs_len = len(review)
-            if rs_len > target_len:
-                start = random.randint(0, rs_len - target_len + 1)
-                end = start + target_len + 1
-                new_rs = rs[start : end]
-                print(start, end, new_rs)
-                exit()
-            else:
-                new_rs = pad_sequences(rs, maxlen=target_len, padding='post', truncating='post')
-            seq[i] = new_rs
-        print(rs)
-        print(new_rs)
-
-        print(seq_copy[0])
-        print(seq[0])
-                
-        print(seq_copy[1])
-        print(seq[1])
-
-        print(seq_copy[2])
-        print(seq[2])
-        exit()
+        seq = pad_sequences(seq, maxlen=text_maxlen + 1, padding='post', truncating='post')        
 
         vocab_size = len(tokenizer.word_index)
             
