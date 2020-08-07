@@ -1,4 +1,4 @@
-# ACL2020-TOT
+## TOT
 
 We implement our code in Tensorflow and the code is tested under a server with 40-core Intel Xeon E5-2630 
 v4 @ 2.20GHz CPU, 256G RAM and Nvidia GTX 1080 GPUs (with TensorFlow 1.13 and Python 3).
